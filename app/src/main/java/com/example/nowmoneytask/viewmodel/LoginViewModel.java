@@ -1,8 +1,5 @@
 package com.example.nowmoneytask.viewmodel;
 
-import android.util.Log;
-
-import androidx.annotation.VisibleForTesting;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
@@ -18,7 +15,7 @@ import javax.inject.Inject;
 
 public class LoginViewModel extends ViewModel {
 
-    @VisibleForTesting
+    //  @VisibleForTesting
     private LiveData<Resource<LoginResponse>> loginResponse;
     private final MutableLiveData<UserBody> userbody = new MutableLiveData<>();
 
@@ -37,14 +34,14 @@ public class LoginViewModel extends ViewModel {
 
     }
 
-    @VisibleForTesting
+    // For Unit Test Only
+    //  @VisibleForTesting
     public void setUserBody(UserBody body) {
-//        Log.e("ViewModel","setUserBody");
         userbody.setValue(body);
 
     }
 
-    @VisibleForTesting
+    //@VisibleForTesting
     public LiveData<Resource<LoginResponse>> getLoginResponse() {
         return loginResponse;
     }

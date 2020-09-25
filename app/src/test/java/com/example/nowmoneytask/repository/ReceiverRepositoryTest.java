@@ -73,8 +73,6 @@ public class ReceiverRepositoryTest {
 
         verify(mApiInterface, never()).getAllReceivers("123");
 
-        //   User user = TestUtil.createUser("foo", "bar", "desc");
-
 
         List<User> users = TestUtil.createUsers(10, "ahmed", "1234", "cairo");
 
@@ -125,32 +123,29 @@ public class ReceiverRepositoryTest {
         when(mApiInterface.addReceiver(token, userBody)).thenReturn(call);
 
 
-
         LiveData<Resource<StatusResponse>> data = repository.addReceiver(userBody, token);
-
 
 
         Observer<Resource<StatusResponse>> observer = mock(Observer.class);
         data.observeForever(observer);
 
 
-
         verify(mApiInterface).addReceiver(token, userBody);
 
 
-        verify(mApiInterface,times(1)).addReceiver(token,userBody);
+        verify(mApiInterface, times(1)).addReceiver(token, userBody);
 
 
         StatusResponse response = Objects.requireNonNull(data.getValue()).data;
 
         assert response != null;
-        assertThat(response.getStatus(),is("Ok"));
+        assertThat(response.getStatus(), is("Ok"));
 
 
     }
 
     @Test
-    public void testDeleteApi(){
+    public void testDeleteApi() {
 
         String id = "7890";
         String token = "123";
@@ -168,14 +163,12 @@ public class ReceiverRepositoryTest {
         data.observeForever(observer);
 
 
-
         verify(mApiInterface).deleteReceiver(token, "7890");
 
 
         StatusResponse response = Objects.requireNonNull(data.getValue()).data;
 
-        assertThat(response.getStatus(),is("Ok"));
-
+        assertThat(response.getStatus(), is("Ok"));
 
 
     }

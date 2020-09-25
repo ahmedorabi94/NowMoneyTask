@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 
-import com.example.nowmoneytask.viewmodel.AddDialogViewModel;
 import com.example.nowmoneytask.viewmodel.LoginViewModel;
 import com.example.nowmoneytask.viewmodel.ReceiversViewModel;
 import com.example.nowmoneytask.viewmodel.TaskViewModelFactory;
@@ -27,11 +26,6 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ReceiversViewModel.class)
     abstract ViewModel bindReceiversViewModel(ReceiversViewModel receiversViewModel);
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(AddDialogViewModel.class)
-    abstract ViewModel bindAddDialogViewModel(AddDialogViewModel addDialogViewModel);
 
 
     @Binds

@@ -92,13 +92,11 @@ public class LoginFragment extends Fragment implements Injectable {
 
                     UserBody body = new UserBody(username, password);
 
-                    if (((MainActivity) requireActivity()).mIdlingResource != null){
+                    // For UI Test Only
+                    if (((MainActivity) requireActivity()).mIdlingResource != null) {
                         Objects.requireNonNull(((MainActivity) requireActivity()).mIdlingResource).setIdleState(false);
 
                     }
-
-
-
 
                     viewModel.setUserBody(body);
 
@@ -111,9 +109,6 @@ public class LoginFragment extends Fragment implements Injectable {
                     }
                 }
             });
-
-
-
 
 
         });
@@ -133,8 +128,8 @@ public class LoginFragment extends Fragment implements Injectable {
 
                 } else if (resource.status == Status.SUCCESS && resource.data != null) {
 
-
-                    if (((MainActivity) requireActivity()).mIdlingResource != null){
+                    // For UI Test Only
+                    if (((MainActivity) requireActivity()).mIdlingResource != null) {
                         Objects.requireNonNull(((MainActivity) requireActivity()).mIdlingResource).setIdleState(true);
 
                     }

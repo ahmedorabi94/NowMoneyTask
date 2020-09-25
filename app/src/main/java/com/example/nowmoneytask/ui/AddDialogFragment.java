@@ -90,7 +90,8 @@ public class AddDialogFragment extends DialogFragment implements Injectable {
 
             User user = new User(name, number, address);
 
-            if (((HomeActivity) requireActivity()).mIdlingResource != null){
+            // For UI Test Only
+            if (((HomeActivity) requireActivity()).mIdlingResource != null) {
                 Objects.requireNonNull(((HomeActivity) requireActivity()).mIdlingResource).setIdleState(false);
 
             }
@@ -105,7 +106,8 @@ public class AddDialogFragment extends DialogFragment implements Injectable {
 
             if (_Id != null) {
 
-                if (((HomeActivity) requireActivity()).mIdlingResource != null){
+                // For UI Test Only
+                if (((HomeActivity) requireActivity()).mIdlingResource != null) {
                     Objects.requireNonNull(((HomeActivity) requireActivity()).mIdlingResource).setIdleState(false);
 
                 }
@@ -139,7 +141,8 @@ public class AddDialogFragment extends DialogFragment implements Injectable {
 
                 } else if (resource.status == Status.SUCCESS && resource.data != null) {
 
-                    if (((HomeActivity) requireActivity()).mIdlingResource != null){
+                    // For UI Test Only
+                    if (((HomeActivity) requireActivity()).mIdlingResource != null) {
                         Objects.requireNonNull(((HomeActivity) requireActivity()).mIdlingResource).setIdleState(true);
 
                     }
@@ -150,14 +153,10 @@ public class AddDialogFragment extends DialogFragment implements Injectable {
 
                     Log.e("AddDialogFragment Add", response.getStatus());
 
-
-                  //  resource = null;
                     viewModel.setUser(null);
                     viewModel.setForceUpdate(true);
 
                     dismiss();
-
-                    //  Navigation.findNavController(binding.getRoot()).popBackStack();
 
 
                 }
@@ -181,7 +180,8 @@ public class AddDialogFragment extends DialogFragment implements Injectable {
 
                 } else if (resource.status == Status.SUCCESS && resource.data != null) {
 
-                    if (((HomeActivity) requireActivity()).mIdlingResource != null){
+                    // For UI Test Only
+                    if (((HomeActivity) requireActivity()).mIdlingResource != null) {
                         Objects.requireNonNull(((HomeActivity) requireActivity()).mIdlingResource).setIdleState(true);
 
                     }
@@ -192,13 +192,9 @@ public class AddDialogFragment extends DialogFragment implements Injectable {
 
                     Log.e("AddDialoFragment Delete", response.getStatus());
 
-
-                  //  resource = null;
                     viewModel.setId(null);
 
                     viewModel.setForceUpdate(true);
-
-                    // Navigation.findNavController(binding.getRoot()).popBackStack();
 
 
                     dismiss();

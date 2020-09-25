@@ -38,8 +38,6 @@ public class ReceiversFragment extends Fragment implements Injectable {
     @Inject
     ViewModelProvider.Factory viewModelFactory;
 
-    private ReceiversViewModel viewModel;
-
     private RecyclerView recyclerView;
     private TaskAdapter adapter;
 
@@ -97,7 +95,7 @@ public class ReceiversFragment extends Fragment implements Injectable {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        viewModel = new ViewModelProvider(requireActivity(), viewModelFactory).get(ReceiversViewModel.class);
+        ReceiversViewModel viewModel = new ViewModelProvider(requireActivity(), viewModelFactory).get(ReceiversViewModel.class);
 
         viewModel.setToken(token);
 
