@@ -75,11 +75,10 @@ public class ReceiverRepositoryTest {
 
 
         List<User> users = TestUtil.createUsers(10, "ahmed", "1234", "cairo");
-
         LiveData<ApiResponse<List<User>>> call = successCall(users);
 
-        when(mApiInterface.getAllReceivers("123"))
-                .thenReturn(call);
+        when(mApiInterface.getAllReceivers("123")).thenReturn(call);
+
 
         Observer observer = mock(Observer.class);
         data.observeForever(observer);
